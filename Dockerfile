@@ -2,8 +2,13 @@ FROM python:3.12-slim
 
 WORKDIR /app
 
-# 👇 ye line add karo (IMPORTANT)
-RUN apt-get update && apt-get install -y git
+# 👇 ye sab install karo (IMPORTANT)
+RUN apt-get update && apt-get install -y \
+    git \
+    gcc \
+    libjpeg-dev \
+    zlib1g-dev \
+    && apt-get clean
 
 COPY . /app/
 
